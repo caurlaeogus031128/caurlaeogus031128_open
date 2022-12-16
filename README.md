@@ -16,19 +16,33 @@ KNeighborsClassifier, SVC, ExtraTreesClassifier, VotingClassifier 의 4가지 �
 마지막으로 VotingClassifier는 내부에 있는 모델의 판단에 따라 최종 판단을 내리는 모델이다.
 ## Explain hyper-parameter of the function
 KNN 모델의 하이퍼파라미터는 아래와 같으며,
+```python
 KNeighborsClassifier(n_neighbors=5, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None)
+```
 나는 그 중 n_neighbors를 1로 수정하였다.
 
 둘 째로 SVC 모델의 하이퍼파라미터는 아래와 같으며,
+```python
 class sklearn.svm.SVC(*, C=1.0, kernel='rbf', degree=3, gamma='scale', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape='ovr', break_ties=False, random_state=None)
-나는 sklearn.svm.SVC(gamma = 1.2, probability=True, random_state = 521 )와 같이 수정하였다.
-
+```
+나는
+ ```python
+sklearn.svm.SVC(gamma = 1.2, probability=True, random_state = 521 )와 같이 수정하였다.
+```
 셋 째로 SVC 모델의 하이퍼파라미터는 아래와 같으며,
+ ```python
 class sklearn.ensemble.ExtraTreesClassifier(n_estimators=100, *, criterion='gini', max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_features='sqrt', max_leaf_nodes=None, min_impurity_decrease=0.0, bootstrap=False, oob_score=False, n_jobs=None, random_state=None, verbose=0, warm_start=False, class_weight=None, ccp_alpha=0.0, max_samples=None)
-나는 sklearn.ensemble.ExtraTreesClassifier(n_estimators = 400, max_depth = 24, max_leaf_nodes = 1000, random_state = 600, n_jobs = -1)와 같이 수정하였다.
+```
+나는
+```python
+sklearn.ensemble.ExtraTreesClassifier(n_estimators = 400, max_depth = 24, max_leaf_nodes = 1000, random_state = 600, n_jobs = -1)
+```
+와 같이 수정하였다.
 
 마지막으로 VotingClassifier 모델의 하이퍼파라미터는 아래와 같으며, 
+```python
 VotingClassifier(estimators, *, voting='hard', weights=None, n_jobs=None, flatten_transform=True, verbose=False)
+```
 나는 voting = 'hard' 를 선택하였다. 
 
 ## how to optimize hyper-parameter?
